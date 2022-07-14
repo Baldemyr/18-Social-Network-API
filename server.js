@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = 3005;
+const PORT = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

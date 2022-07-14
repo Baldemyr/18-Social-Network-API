@@ -8,3 +8,30 @@ const userSchema = new Schema({
       required: true,
       trimmed: true
     },
+    email: {
+        type: String,
+        unique: true,
+        required: true,
+        match: [
+          /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+        ] 
+      },
+      thoughts: // one to many relationship
+        [{type: Schema.Types.ObjectId,
+          ref: 'Thought'
+      }], 
+      friends: // one to many relationship
+        [{type: Schema.Types.ObjectId, 
+          ref: 'User'
+        }], 
+    }, opt );
+    const User = model('User', userSchema);
+
+    // creates a virtual to retrieve length of users friends
+
+    userSchema.virtual('friendCount').get(function() {
+      return this.friends.length;
+    });
+    
+    
+    module.exports = User;
