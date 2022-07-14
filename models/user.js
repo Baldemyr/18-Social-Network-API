@@ -16,18 +16,18 @@ const userSchema = new Schema({
           /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
         ] 
       },
-      thoughts: // one to many relationship
+      thoughts: // one to many rel
         [{type: Schema.Types.ObjectId,
           ref: 'Thought'
       }], 
-      friends: // one to many relationship
+      friends: // one to many rel
         [{type: Schema.Types.ObjectId, 
           ref: 'User'
         }], 
     }, opt );
     const User = model('User', userSchema);
 
-    // creates a virtual to retrieve length of users friends
+    // creates a virtual thingy to retrieve length of users friends
 
     userSchema.virtual('friendCount').get(function() {
       return this.friends.length;
