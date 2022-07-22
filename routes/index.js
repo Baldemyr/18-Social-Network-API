@@ -1,8 +1,12 @@
+//require express 
+//require api routes through api folder
 const router = require('express').Router();
-const userRoute = require('./api/users-route');
-const thoughtRoute = require('./api/thoughts-route');
+const apiRoutes = require('./api');
 
-router.use('/users', userRoute);
-router.use('/thoughts', thoughtRoute);
+router.use('/api', apiRoutes);
 
+//wrong route msg
+router.use((req, res) => res.send('Turn Back-wrong route!'));
+
+//export
 module.exports = router;

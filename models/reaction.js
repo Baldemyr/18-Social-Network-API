@@ -1,33 +1,34 @@
-const { Schema, Types }=require('mongoose');
-const moment = require('moment');
-
-const reactionSchema = new Schema ({
+//require mongoose, reaction schema, formatDate
+const { Schema, Types } = require('mongoose');
+const formatDate = require('../utils/date');
+const reactionSchema = new Schema(
+  {
     reactionId: {
-        type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
     },
-reactionBody: {
-    type: String,
-    required: true,
-    maxLength: 280
-},
-username: {
-    type: String,
-    required: true
-},
-createdAt: {
-    type: Date,
-    default: Date.now,
-    get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
-}
-},
-{
+    reactionBody: {
+      type: String,
+      required: true,
+      maxlength: 280,
+      },
+    username: {
+      type: String,
+      required: true,
+      },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: timeStamp => formatDate(timeStamp)
+    },
+  },
+  {
     toJSON: {
-        getters: true
+      virtuals: true,
+      getters: true,
     },
-    id: false
-}
-
+    id: false,
+  }
 );
 
 module.exports = reactionSchema;
