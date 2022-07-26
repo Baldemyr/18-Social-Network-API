@@ -1,5 +1,4 @@
-//require express 
-//require api routes through api folder
+//require express and api routes 
 const router = require('express').Router();
 const apiRoutes = require('./api');
 

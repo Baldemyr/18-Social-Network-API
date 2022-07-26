@@ -1,6 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 
-// UserSchema to create model for users
+// UserSchema to create models for users
 const userSchema = new Schema(
   {
     username: {
@@ -14,7 +14,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      //remeber regex *personal note
       match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "Invalid email provided"],
     },
     thoughts: [{

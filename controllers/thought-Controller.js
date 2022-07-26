@@ -1,4 +1,4 @@
-//require thought through models
+// Require thought through models
 const { Thought, User } = require('../models');
 
 
@@ -15,7 +15,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-// will only catch a single thought using findOne, select, populate or throw error if an ID is not found
+// Single thought using findOne, select, populate or throw error if an ID is not located
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
     .select('-__v')
@@ -31,7 +31,7 @@ module.exports = {
     .catch((err) => res.status(500).json(err));
 },
   
-  //to create a new thought
+  // Create a new thought
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
@@ -53,7 +53,7 @@ module.exports = {
         res.status(500).json(err);
       });
     },
-//update thoughts using findOneAndUpdate
+// Update thoughts using findOneAndUpdate
 updateThought(req, res) {
   Thought.findOneAndUpdate(
     { _id: req.params.thoughtId },
@@ -90,8 +90,7 @@ updateThought(req, res) {
   },
 
 
-//creates a reaction
-//console log addition
+// Creates a reaction
 addReaction(req, res) {
   console.log('You are adding a reaction');
   console.log(req.body);
@@ -111,7 +110,7 @@ addReaction(req, res) {
     )
     .catch((err) => res.status(500).json(err));
 },
-// deletes a reaction using findOneAndDelete in conjunction with findOneAndUpdate
+// Deletes a reaction
 deleteReaction(req, res) {
   Thought.findOneAndUpdate(
     { _id: req.params.thoughtId },

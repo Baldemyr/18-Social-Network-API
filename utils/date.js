@@ -1,5 +1,4 @@
 //require express
-//do not forget router() as per last assignment *personal note
 const router = require('express').Router();
 
 //user & friend params through user-controller
@@ -11,7 +10,7 @@ const {
     deleteUser,
     addFriend,
     deleteFriend,
-} = require('../../controllers/user-controller');
+} = require('..//controllers/user-controller');
 
 router.route('/').get(getUsers).post(createUser);
 

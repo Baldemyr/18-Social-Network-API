@@ -2,7 +2,7 @@ const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 const thoughtController = require('./thought-controller');
 
-//will get all users
+// Get all users
 module.exports = {
 
   getUsers(req, res) {
@@ -17,7 +17,7 @@ module.exports = {
       })
   },
   
-  //will find a single user by using findOne
+  // Find a single user by using findOne
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .populate({ path: 'thoughts', select: '-__v' })
@@ -30,14 +30,14 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  //will create a user using create
+  // Create a user using create
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
 
- // to update user using findOneAndUpdate
+ // Update user using findOneAndUpdate
  updateUser(req, res) {
   User.findOneAndUpdate(
     { _id: req.params.userId },

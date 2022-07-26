@@ -1,5 +1,4 @@
-//require express
-// require routes through user & thought
+// require express and routes through user & thought
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
 const thoughtRoutes = require('./thought-routes');
