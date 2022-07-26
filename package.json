@@ -1,29 +1,17 @@
 {
-  "name": "nosql-socialnetwork-api",
+  "name": "18-nosql",
   "version": "1.0.0",
-  "description": "packages for nosql-socialnetwork-api",
+  "private": true,
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "seed": "node utils/seed.js",
-    "dev": "nodemon server.js"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "6.4.5"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.9"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Baldemyr/18-Social-Network-API.git"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Baldemyr/18-Social-Network-API/issues"
-  },
-  "homepage": "https://github.com/Baldemyr/18-Social-Network-API#readme"
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10"
+  }
 }
