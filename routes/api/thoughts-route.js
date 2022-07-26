@@ -1,7 +1,9 @@
 //require express
+
 const router = require('express').Router();
 
 //thoughts and reactions params, through thought-controller
+
 const {
   getThoughts,
   getSingleThought,

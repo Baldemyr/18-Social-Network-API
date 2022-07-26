@@ -10,12 +10,14 @@ const {
 } = require('../../controllers/user-controller');
 
 // api users
+
 router
   .route('/')
   .get(getAllUser)
   .post(createUser);
 
 // api user IDs
+
 router
   .route('/:id')
   .get(getUserById)
@@ -23,6 +25,7 @@ router
   .delete(deleteUser);
 
 // api users friends by friends ID
+
 router
   .route('/:id/friends/:friendsId')
   .post(addFriend)
