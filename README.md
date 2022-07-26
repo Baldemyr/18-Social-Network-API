@@ -2,7 +2,7 @@
 
 This is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The API is built with Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
-## Technologies
+## Tech Used
 * IndexedDB 
 * Mongoose
 * MongoDB
@@ -11,7 +11,9 @@ This is an API for a social network web application where users can share their 
 * npm i to install dependencies
 * npm start to start the API
 
-## GitHub Repo
+## GitHub Repository
 
 
-## Demo Video
+## Image
+
+## Video
