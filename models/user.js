@@ -1,37 +1,41 @@
-const { Schema, model } = require('mongoose');
-const opt = { toJSON: { virtuals: true, getters: true, id: false} };
+const { Schema, model, Types } = require('mongoose');
 
-const userSchema = new Schema({
+// UserSchema to create models for users
+const userSchema = new Schema(
+  {
     username: {
       type: String,
       unique: true,
       required: true,
-      trimmed: true
+      trim: true,
+      max_length: 50,
     },
     email: {
-        type: String,
-        unique: true,
-        required: true,
-        match: [
-          /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-        ] 
-      },
-      thoughts: // one to many rel
-        [{type: Schema.Types.ObjectId,
-          ref: 'Thought'
-      }], 
-      friends: // one to many rel
-        [{type: Schema.Types.ObjectId, 
-          ref: 'User'
-        }], 
-    }, opt );
-    const User = model('User', userSchema);
+      type: String,
+      required: true,
+      unique: true,
+      match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "Invalid email provided"],
+    },
+    thoughts: [{
+      type: Schema.Types.ObjectId,
+      ref: 'thought'
+  }],
+    friends: [{
+      type: Schema.Types.ObjectId,
+      ref: 'user'
+  }],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  id: false,
+  }
+);
+userSchema.virtual("friendCount").get(function(){
+  return this.friends.length;
+});
 
-    // creates a virtual thingy to retrieve length of users friends
+const User = model('user', userSchema);
 
-    userSchema.virtual('friendCount').get(function() {
-      return this.friends.length;
-    });
-    
-    
-    module.exports = User;
+module.exports = User;

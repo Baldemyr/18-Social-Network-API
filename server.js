@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(routes);
 
-//display msg using console log once app is "listeing"
+//display msg using console log once app is listening
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
