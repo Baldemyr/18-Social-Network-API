@@ -1,6 +1,4 @@
-//require paths from user.js and thought.js
-const User = require('./user');
-const Thought = require('./thought');
+const User = require('./User');
+const Thought = require('./Thought');
 
-//export both user & thought data
 module.exports = { User, Thought };

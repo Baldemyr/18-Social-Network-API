@@ -1,19 +1,22 @@
-// require and initalize necessary connections
 const express = require('express');
-const db = require('./config/connection');
-const routes = require('./routes');
+const mongoose = require('mongoose');
 
-const PORT = 3001;
 const app = express();
+const PORT = process.env.PORT || 3001;
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(express.json());
-app.use(routes);
 
-//display msg using console log once app is listening
-db.once('open', () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-  });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-api', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
+
+// I am trying to see how to make this log on advice from prof
+
+mongoose.set('debug', true);
+
+app.use(require('./routes'));
+
+app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
