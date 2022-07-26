@@ -1,7 +1,9 @@
 //require express
+
 const router = require('express').Router();
 
-//user & friend params through user-controller
+//user & friend parameters through user-controller
+
 const {
     getUsers,
     getSingleUser,
@@ -17,6 +19,7 @@ router.route('/').get(getUsers).post(createUser);
 router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
 
 /// /api/users/:userId/friends/:friendId
+
 router.route('/:userId/friends/:friendId').post(addFriend).delete(deleteFriend);
 
 module.exports = router;
