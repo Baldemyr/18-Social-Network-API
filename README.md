@@ -1,4 +1,4 @@
-# social-network-api
+# Social Network API using Mongo
 
 This is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The API is built with Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
@@ -12,6 +12,8 @@ This is an API for a social network web application where users can share their 
 * npm start to start the API
 
 ## GitHub Repository
+
+https://github.com/Baldemyr/18-Social-Network-API.git
 
 
 ## Image
